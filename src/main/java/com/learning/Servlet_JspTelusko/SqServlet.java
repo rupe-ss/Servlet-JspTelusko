@@ -6,6 +6,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,7 +19,16 @@ public class SqServlet extends HttpServlet {
 //        int k = (int) req.getAttribute("k");
 //        k = k * k;
 
+//        PrintWriter out = resp.getWriter();
+//        out.println("Testing request dispatcher, result is:");
+
+        HttpSession session = req.getSession();
+
+//        session.removeAttribute("k");
+
+        int k = (int) session.getAttribute("k");
+        k = k * k;
         PrintWriter out = resp.getWriter();
-        out.println("Testing request dispatcher, result is:");
+        out.println("Testing sendRedirect, result is:" + k);
     }
 }

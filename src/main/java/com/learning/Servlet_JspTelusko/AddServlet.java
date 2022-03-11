@@ -22,9 +22,19 @@ public class AddServlet extends HttpServlet {
 //      resp.getWriter().println("Result is :" + k);
 
 //      We have to set attribute, so that we can send some value to another servlet. We can do that by setting attribute.
-        req.setAttribute("k", k);
-        RequestDispatcher rd = req.getRequestDispatcher("sq");
-        rd.forward(req, resp);
+//        req.setAttribute("k", k);
+//        RequestDispatcher rd = req.getRequestDispatcher("sq");
+//        rd.forward(req, resp);
+
+        //We are managing with URL Redirect
+//        resp.sendRedirect("sq");
+        //We can send data as well
+//        resp.sendRedirect("sq?k="+9);
+
+        //Using session to store data so we can use in another Servlet
+        HttpSession session = req.getSession();
+        session.setAttribute("k", k);
+        resp.sendRedirect("sq");
     }
 
 }
