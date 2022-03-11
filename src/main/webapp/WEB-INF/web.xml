@@ -11,4 +11,14 @@
         <servlet-name>addservlet</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
+
+<!--    Also learning how to comment on .xml file, below is for testing Request Dispatcher sending request from one servlet to another-->
+    <servlet>
+        <servlet-name>sqservlet</servlet-name>
+        <servlet-class>com.learning.Servlet_JspTelusko.SqServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sqservlet</servlet-name>
+        <url-pattern>/sq</url-pattern>
+    </servlet-mapping>
 </web-app>
