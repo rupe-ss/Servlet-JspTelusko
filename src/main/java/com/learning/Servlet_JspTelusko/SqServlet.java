@@ -23,13 +23,17 @@ public class SqServlet extends HttpServlet {
 //        out.println("Testing request dispatcher, result is:");
 
         HttpSession session = req.getSession();
-
-//        session.removeAttribute("k");
-
-        int k = (int) session.getAttribute("k");
         String projectName = (String) session.getAttribute("projectName");
-        k = k * k;
+
+        session.removeAttribute("k");
+        int k;
         PrintWriter out = resp.getWriter();
-        out.println("Testing sendRedirect, result is:" + k + ".\n" + "Project Name is:-" + projectName);
+        if (session.getAttribute("k") != null) {
+            k = (int) session.getAttribute("k");
+            k = k * k;
+            out.println("Testing sendRedirect, result is:" + k + ".\n" + "Project Name is:-" + projectName);
+        } else {
+            out.println("Attribute \"k\" is removed only project name is available" + ".\n" + "Project Name: " + projectName);
+        }
     }
 }
