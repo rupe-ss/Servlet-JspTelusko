@@ -3,10 +3,12 @@ package com.learning.Servlet_JspTelusko;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet("/sq")
 public class SqServlet extends HttpServlet {
 
     @Override
