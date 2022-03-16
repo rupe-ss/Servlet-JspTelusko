@@ -27,8 +27,9 @@ public class SqServlet extends HttpServlet {
 //        session.removeAttribute("k");
 
         int k = (int) session.getAttribute("k");
+        String projectName = (String) session.getAttribute("projectName");
         k = k * k;
         PrintWriter out = resp.getWriter();
-        out.println("Testing sendRedirect, result is:" + k);
+        out.println("Testing sendRedirect, result is:" + k + ".\n" + "Project Name is:-" + projectName);
     }
 }

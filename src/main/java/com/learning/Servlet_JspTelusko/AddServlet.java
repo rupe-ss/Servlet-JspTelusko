@@ -15,6 +15,7 @@ public class AddServlet extends HttpServlet {
         int i = Integer.parseInt(req.getParameter("num1"));
         int j = Integer.parseInt(req.getParameter("num2"));
 
+        String projectName = "Session Topic";
         int k = i + j;
 
 //      PrintWriter out = resp.getWriter();
@@ -34,6 +35,9 @@ public class AddServlet extends HttpServlet {
         //Using session to store data so we can use in another Servlet
         HttpSession session = req.getSession();
         session.setAttribute("k", k);
+        session.setAttribute("projectName", projectName);
+
+        //When you redirect it will send to different path, here path will be "localhost:8080/sq"
         resp.sendRedirect("sq");
     }
 
