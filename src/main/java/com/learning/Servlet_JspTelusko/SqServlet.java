@@ -45,6 +45,7 @@ public class SqServlet extends HttpServlet {
                 k = Integer.parseInt(c.getValue());
             }
         }
+        resp.setContentType("text/html");
         resp.getWriter().println("The sum of two number is integer:" + k);
 
         //Below line is printing all html element tag as well need to find out how tag won't show on browser page
