@@ -1,5 +1,6 @@
 package com.learning.Servlet_JspTelusko;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -8,7 +9,6 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/sq")
 public class SqServlet extends HttpServlet {
 
     @Override
@@ -38,17 +38,22 @@ public class SqServlet extends HttpServlet {
 
         //So when client is sending cookies to Server, its sending lot of cookies,
         // First we have to recieve the cookies
-        int k = 0;
-        Cookie cookies[] = req.getCookies();
-        for( Cookie c : cookies){
-            if( c.getName().equals("k")){
-                k = Integer.parseInt(c.getValue());
-            }
-        }
-        resp.setContentType("text/html");
-        resp.getWriter().println("The sum of two number is integer:" + k);
+//        int k = 0;
+//        Cookie cookies[] = req.getCookies();
+//        for( Cookie c : cookies){
+//            if( c.getName().equals("k")){
+//                k = Integer.parseInt(c.getValue());
+//            }
+//        }
+//        resp.setContentType("text/html");
+//        resp.getWriter().println("The sum of two number is integer:" + k);
+//
+//        //Below line is printing all html element tag as well need to find out how tag won't show on browser page
+//        resp.getWriter().println("<html><body><h1> AddServlet created a cokie name \"k\" and we recieved that cookie in SqServlet</h1></body></html>");
 
-        //Below line is printing all html element tag as well need to find out how tag won't show on browser page
-        resp.getWriter().println("<html><body><h1> AddServlet created a cokie name \"k\" and we recieved that cookie in SqServlet</h1></body></html>");
+        ServletConfig cg = getServletConfig();
+        String str = cg.getInitParameter("name");
+
+        resp.getWriter().println(str);
     }
 }

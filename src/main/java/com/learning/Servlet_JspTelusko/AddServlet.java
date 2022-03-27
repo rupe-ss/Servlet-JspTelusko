@@ -48,7 +48,12 @@ public class AddServlet extends HttpServlet {
         ServletContext context = getServletContext();
         String cxt = context.getInitParameter("globalVariable");
 
+        ServletConfig config = getServletConfig();
+        String cfg = config.getInitParameter("globalVariable");
+
+
         resp.getWriter().println("<h1>" +cxt +"</h1>");
+        resp.getWriter().println("<h1>" +cfg +"</h1>");
     }
 
 }
