@@ -1,9 +1,6 @@
 package com.learning.Servlet_JspTelusko;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -44,9 +41,14 @@ public class AddServlet extends HttpServlet {
 
         //Using cookies to store data so we can send back to browser and from there it will be send to another Servlet
         //Below k is integer so we are changing integer to string by attaching empty string to it.
-        Cookie cookie = new Cookie("k", k + "");
+        /*Cookie cookie = new Cookie("k", k + "");
         resp.addCookie(cookie);
-        resp.sendRedirect("sq");
+        resp.sendRedirect("sq");*/
+
+        ServletContext context = getServletContext();
+        String cxt = context.getInitParameter("globalVariable");
+
+        resp.getWriter().println("<h1>" +cxt +"</h1>");
     }
 
 }
